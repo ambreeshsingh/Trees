@@ -16,7 +16,6 @@ class Node{
 static int idx=-1;
 Node* buildTree(vector<int>preorder){
     idx++;
-    
     //base case
     if(preorder[idx]==-1)return NULL;
     //ekkaam mai kar dunga
@@ -42,15 +41,41 @@ void preOrder(Node*root){//0(n)
 }
 
 //inorder
+void inorder(Node*root){//0(n)
+    if(root==NULL){
+        return;
+    }
+    inorder(root->left);
+    cout<<root->data<<" ";
+    inorder(root->right);
+
+}
+
+void postorder(Node*root){//0(n)
+    if(root==NULL){
+        return;
+    }
+    postorder(root->left);
+    postorder(root->right);
+    cout<<root->data<<" ";
+
+}
+
+
 
 
 
 int main(){
-     vector<int> preorder={1,2,-1,-1,3,-1,-1,5,-1,-1};
+     vector<int> preorder={1,2,-1,-1,3,-1,-1};
      Node *root=buildTree(preorder);
      preOrder(root);
      cout<<endl;
      
+     inorder(root);
+     cout<<endl;
+
+     postorder(root);
+     cout<<endl;
     return 0;
 
 }
