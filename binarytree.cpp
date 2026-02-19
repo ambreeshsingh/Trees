@@ -1,4 +1,6 @@
 #include<iostream>
+#include<vector>
+#include<queue>
 using namespace std;
 
 class Node{
@@ -60,6 +62,31 @@ void postorder(Node*root){//0(n)
     cout<<root->data<<" ";
 
 }
+//LEVEL ORDER TRAVERSAL
+void levelordertraversal(Node*root){
+    queue<Node*>q;
+    q.push(root);
+
+    while(q.size()>0){
+        Node* curr=q.front();
+        q.pop();
+        cout<<curr->data<<" ";
+
+        if(curr->left!=NULL){
+            q.push(curr->left);
+
+        }
+        if(curr->right!=NULL){
+
+            q.push(curr->right);
+
+        }
+    }
+
+cout<<endl;
+
+}
+
 
 
 
@@ -75,6 +102,9 @@ int main(){
      cout<<endl;
 
      postorder(root);
+     cout<<endl;
+
+     levelordertraversal(root);
      cout<<endl;
     return 0;
 
