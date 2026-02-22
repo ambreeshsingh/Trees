@@ -1,8 +1,15 @@
 #include<iostream>
+#include<set>
 using namespace std;
 
 
 int main(){
-    vector<int>preorder={1,2,-1,-1,3,4,-1,-1,5,-1,-1};
+      set<string>s;
+      s.insert("ok");
+      s.insert("ok");
+      s.insert("ko");
+      cout<<s.size();
+      
+   
     return 0;
 }

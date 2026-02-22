@@ -86,26 +86,48 @@ void levelordertraversal(Node*root){
 cout<<endl;
 
 }
+//height
 
 
 
 
 
 
-int main(){
+
+//count nodes
+int countnodes(Node*root){
+
+    if(root==NULL){
+        return 0;
+    }
+    // return (countnodes(root->left)+countnodes(root->right))+1;
+    // int ans=countnodes(root->left)+countnodes(root->right);
+    // return ans+1;
+
+    int leftcount=countnodes(root->left);
+    int rightcount=countnodes(root->right);
+    
+    return (leftcount+rightcount)+1;
+}
+
+int main(){   
      vector<int> preorder={1,2,-1,-1,3,-1,-1};
      Node *root=buildTree(preorder);
-     preOrder(root);
-     cout<<endl;
+    //  preOrder(root);
+    //  cout<<endl;
      
-     inorder(root);
-     cout<<endl;
+    //  inorder(root);
+    //  cout<<endl;
 
-     postorder(root);
-     cout<<endl;
+    //  postorder(root);
+    //  cout<<endl;
 
-     levelordertraversal(root);
-     cout<<endl;
+    //  levelordertraversal(root);
+    //  cout<<endl;
+
+
+    cout<<"no of nodes are : "<< countnodes(root);
+    cout<<endl;
     return 0;
 
 }
